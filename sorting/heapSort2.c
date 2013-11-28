@@ -3,7 +3,7 @@ void printArr(int *arr, int arrLength);
 void siftdown(int *array, int startInd, int lastEleInd);
 void heapify(int * array, int arraylength);
 void heapsort(int *array, int arraylength);
-void swap(int *a, int *b);
+void SWAP(int *a, int *b);
 
 int main()
 {
@@ -37,7 +37,7 @@ int swap= 0; int child= 0;
 			swap= child + 1; 
 		if(swap != root)
 		{
-			swap( array+root, array + swap); 
+			SWAP( array+root, array + swap); 
 			root= swap;
 		}
 		else
@@ -54,10 +54,16 @@ void heapify(int * array, int arraylength)
 if(array==NULL||arraylength<=1) return; 
 	for(int parent=(arraylength -2)/2; parent >= 0 ;parent-- )
 	{
-		siftdown(array, parent, parent--); 
+		siftdown(array, parent, arraylength - 1); 
 	}
 }
-
+/**
+* Literally exchange the root element with the last element in the heap.
+* If it's a max-heap, the sorted array will be ascending order. (Larger numbers will
+* be put in the later part of the array. 
+* @param array: A integer pointer to an array. 
+ 	 arraylength: The length of the input array. 
+*/
 void heapsort(int *array, int arraylength)
 {
 if( array== NULL|| arraylength <= 1) return; 
@@ -67,13 +73,13 @@ if( array== NULL|| arraylength <= 1) return;
 
 	while(endind > 0)
 	{
-		swap(array, array+ endind); 
+		SWAP(array, array+ endind); 
 		endind--; 
 		siftdown(array, 0, endind); 
 	}
 }
 
-void swap(int *a, int *b)
+void SWAP(int *a, int *b)
 {
 	*a= *a ^ *b;
 	*b= *a ^ *b;

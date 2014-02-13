@@ -1,0 +1,48 @@
+Well, using the sort function in STL to sort objects is powerful.
+
+But you are easy make mistakes!
+
+Reference this first: http://www.cplusplus.com/reference/algorithm/sort/
+
+
+####################################################################################
+
+void sort (RandomAccessIterator first, RandomAccessIterator last, Compare comp);
+
+Sort elements in range
+
+Sorts the elements in the range [first,last) into ascending order.
+
+The elements are compared using operator< for the first version, and comp for the second.
+
+Equivalent elements are not guaranteed to keep their original relative order (see stable_sort).
+
+####################################################################################
+
+The solution is very great:
+http://stackoverflow.com/questions/1380463/sorting-a-vector-of-custom-objects
+
+0. The 'cmp' doesn't indicate a function only. It can also be a struct. 
+
+1. The sort function act in this way: 
+
+It will compare the the elements by the 'comp' function's definition. Without overloading operator '>' or '<'
+
+to get a boolean value can't make this work. In my example, although I use 'str::compare' to get the boolean 
+
+value. But I prefer to overload the operator for specific class so that you can get a more general solution.
+
+2. return (EXPRESSION); As the value is true, it will place the first arg in front of the second arg. 
+
+It depends the order is ascending or descending!  
+
+For instance:
+  
+bool cmp(const Class &a, const Class &b)
+{
+		return a.key > b.key;
+}
+
+If the key value of 'a' is larger than 'b', then the element 'a' will be put in front of 'b'.  (Swap them.)
+
+Create the condition what you want. Check the source code for more detail.

@@ -36,5 +36,5 @@ string tmp;
 		std::cout<<start<<" "<<end<<" "<<max<<'\n';
 		ss.clear();
 	}
-return -1;
+return 0;
 }

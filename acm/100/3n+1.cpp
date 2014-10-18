@@ -6,25 +6,29 @@ using namespace std;
 int main()
 {
 stringstream ss;
-int start(0);
-int end(0);
+unsigned int start(0);
+unsigned int end(0);
 string tmp;
-	while(std::getline(std::cin,tmp))
+	while( std::getline(std::cin,tmp))
 	{
+	if(cin.eof())break;
 		ss.str(tmp);
 		ss>>start>>end;
+		
+		int outPutStart= start;
+		int outPutEnd= end;
 		if(start > end)
 		{
-			int tmp(0);
+			unsigned int tmp(0);
 			tmp= start;
 			start= end;
 			end= tmp;
 		}
-		int max(0);
+		unsigned int max(0);
 		for(int i=start;i<=end;i++)
 		{
-			int count(1);
-			int val= i; 
+			unsigned int count(1);
+			unsigned int val= i; 
 			while(val!=1)
 			{
 				count++;
@@ -33,8 +37,8 @@ string tmp;
 			}
 			if(count>max) max= count;
 		}
-		std::cout<<start<<" "<<end<<" "<<max<<'\n';
+		std::cout<<outPutStart<<" "<<outPutEnd<<" "<<max<<'\n';
 		ss.clear();
 	}
-return -1;
+return 0;
 }

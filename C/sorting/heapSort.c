@@ -21,10 +21,7 @@ return 0;
 void heapsort(int numbers[], int array_size)
 {
   int i, temp;
-/*
-  for (i = (array_size / 2)-1; i >= 0; i--)
-    siftDown(numbers, i, array_size);
-*/
+
   for (i = array_size-1; i >= 1; i--)
   {
     temp = numbers[0];

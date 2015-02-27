@@ -1,0 +1,14 @@
+Be careful about the syntax!
+
+1. std::vector<T> v; 	Type!, You must specify the type! It's a template!
+
+2. Remember the pattern: i < list.size()	// Or i <= list.size() -1 to 
+						// go through the elements.
+3. Use array to initialize the vector:
+
+int arr[n]= {,,,,}	// n elements
+std::vector v(arr, arr +n); // The pointer indicates the range. (startPos, endPos) // [ ) close,open
+
+4. Get the sub-vector:
+	std::vector v2(ITERATOR1, ITERAOTR2); // v2(v.begin(), v.end());
+

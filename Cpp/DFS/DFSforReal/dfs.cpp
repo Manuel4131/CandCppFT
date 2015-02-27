@@ -19,26 +19,11 @@ int graph[][7]=
 
 int main()
 {
-//Initialize a graph. 
-
-
 std::stack <int> s; 
 std::vector <int> nodes;
-/*graph=
-{
-{0,1,1,1,0,0,0},
-{1,0,0,0,0,1,0},
-{1,0,0,1,1,0,1},
-{1,0,1,0,1,0,0},
-{0,0,1,1,0,0,1},
-{0,1,0,0,0,0,0},
-{0,0,1,0,1,0,0}
-};
-*/
 
 int curNode= 0; 
 std::vector <int> visitedNode; 
-
 
 for(int i= 0; i < 7; i++)
 {
@@ -58,10 +43,7 @@ for(int i= 0; i < 7; i++)
 			visitedNode.push_back(curNode); 
 			
 		}
-		//if the node: curNode is visited. continue
-		// else  put its' all neighor nodes to stack and put it to visited[]
 	}
-	//std::cout<<"Size: "<< visitedNode.size(); 
 printVector(visitedNode); 	
 return 0;
 }
@@ -73,10 +55,9 @@ void getNeighborsAndPush(std::stack <int> &s, int node)
 	{
 		if( graph[ node ][i]== 1) s.push( i ); 
 		
-	} 
-
-
+	}
 }
+
 bool isVisited(std::vector<int> &visitedNode, int node)
 {
 	for(int i=0; i < visitedNode.size();i++)	
